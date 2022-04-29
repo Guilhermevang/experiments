@@ -48,30 +48,9 @@ function CreateSegments(anchors) {
   };
 }
 
-function calcArr(arr = [], method = '+') {
-  const methods = {
-    '+': (a, b) => a + b,
-    '-': (a, b) => a - b,
-    '*': (a, b) => a * b,
-    '/': (a, b) => a / b,
-  }
-  return arr.reduce((acc, val) => acc.map((n, i) => methods[method](n, val[i])));
-}
-
-function getPointsDistance(a, b) {
-  return Math.hypot(...getCoordsDistance(a, b));
-}
-
-function getCoordsDistance(a, b) {
-  return a.map((n, i) => n - b[i]);
-}
-
 export default {
   Linear,
   Quadratic,
   Cubic,
   CreateSegments,
-  calcArr,
-  getPointsDistance,
-  getCoordsDistance,
 };

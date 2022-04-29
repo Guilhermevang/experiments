@@ -1,5 +1,6 @@
 import canvasRender from './../src/canvas.js';
 import Bezier from './Bezier.js';
+import calc from '../src/calc.js';
 
 const canvas = document.querySelector('#canvas')
 const ctx = canvas.getContext('2d')
@@ -31,7 +32,7 @@ function Points(points, round = true, color = '#f47471', radius = 6) {
     ctx.beginPath();
     round
       ? ctx.arc(...point, 6, 0, 2 * Math.PI)
-      : ctx.rect(...Bezier.calcArr([point, [radius,radius]], '-'), 2*radius, 2*radius);
+      : ctx.rect(...calc.vectors([point, [radius,radius]], '-'), 2*radius, 2*radius);
     let prevFillStyle = ctx.fillStyle;
     ctx.fillStyle = color;
     ctx.fill();
